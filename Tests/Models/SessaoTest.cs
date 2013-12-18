@@ -18,7 +18,15 @@ namespace Tests.Models
 
             Assert.IsTrue(sessao.PodeReservar(1));
         }
-        
+
+        [Test]
+        public void Reservar2IngressosQuandoHa1Vaga()
+        {
+            Sessao sessao = new Sessao();
+            sessao.TotalDeIngressos = 1;
+
+            Assert.IsFalse(sessao.PodeReservar(2));
+        }
 
         [Test]
         public void Reservar2IngressosQuandoHa2Vagas() {
