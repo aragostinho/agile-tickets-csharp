@@ -29,7 +29,7 @@ namespace Tests.Models
         }
 
         [Test]
-        public void NaoDeveReservarNenhumIngressoQuandoHa3Vagas()
+        public void NaoDeveReservarZeroIngressosQuandoHa3Vagas()
         {
             Sessao sessao = new Sessao();
             sessao.TotalDeIngressos = 3;
