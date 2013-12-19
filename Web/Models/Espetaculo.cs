@@ -19,8 +19,7 @@ namespace AgileTickets.Web.Models
         }
 
         public virtual IList<Sessao> CriaSessoes(DateTime inicio, DateTime fim, Periodicidade periodicidade)
-        {
-            // ALUNO: Não apague esse metodo. Esse sim será usado no futuro! ;)
+                   
             return null;
         }
 
@@ -38,14 +37,12 @@ namespace AgileTickets.Web.Models
             foreach (Sessao s in olSessao)
             {
                 if (s.IngressosDisponiveis < qtdMinimaDeVagas) return false;
-
             }
             return true;
         }
 
         public virtual bool PossuiVagas(int qtdDeVagasRequisitadas)
         {
-            // ALUNO: Não apague esse metodo. Esse sim será usado no futuro! ;)
             int totalDisponivel = ObterTotalDisponivel();
             return (totalDisponivel >= qtdDeVagasRequisitadas);
         }
