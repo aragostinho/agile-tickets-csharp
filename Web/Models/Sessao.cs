@@ -18,9 +18,15 @@ namespace AgileTickets.Web.Models
             if (NumeroDeIngressos <= 0)
                 return false;
 
-            int sobraram = IngressosDisponiveis - NumeroDeIngressos;
-            return sobraram >= 0;
+            int ingressosRestantes = IngressosRestantes(IngressosDisponiveis, NumeroDeIngressos);
+            return ingressosRestantes >= 0;
         }
+
+        private int IngressosRestantes(int pIngressosDisponiveis, int pNumeroDeIngressos)
+        {
+            return pIngressosDisponiveis - pNumeroDeIngressos;
+        }
+
 
         public virtual int IngressosDisponiveis
         {
