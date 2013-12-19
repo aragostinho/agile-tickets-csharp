@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AgileTickets.Web.Repositorios
 {
-    public interface IDao<T, int>
+    public interface IDao<T>
     {
         IList<T> Todos();
         T Selecione(T pObject);
