@@ -19,7 +19,6 @@ namespace AgileTickets.Web.Models
                 return false;
 
             int sobraram = IngressosDisponiveis - NumeroDeIngressos;
-
             return sobraram >= 0;
         }
 

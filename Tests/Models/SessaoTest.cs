@@ -20,7 +20,7 @@ namespace Tests.Models
         }
 
         [Test]
-        public void Reservar2IngressosQuandoHa1Vaga()
+        public void NaoDeveReservar2IngressosQuandoHa1Vaga()
         {
             Sessao sessao = new Sessao();
             sessao.TotalDeIngressos = 1;
@@ -29,7 +29,7 @@ namespace Tests.Models
         }
 
         [Test]
-        public void ReservarNenhumIngressoQuandoHa3Vagas()
+        public void NaoDeveReservarNenhumIngressoQuandoHa3Vagas()
         {
             Sessao sessao = new Sessao();
             sessao.TotalDeIngressos = 3;
@@ -38,7 +38,7 @@ namespace Tests.Models
         }
 
         [Test]
-        public void Reservar2IngressosQuandoNaoHaVagas()
+        public void NaoDeveReservar2IngressosQuandoNaoHaVagas()
         {
             Sessao sessao = new Sessao();
             sessao.TotalDeIngressos = 0;
@@ -55,7 +55,7 @@ namespace Tests.Models
         }
 
         [Test]
-        public void NaodeveVender3IngressoSeHa2Vagas()
+        public void NaoDeveVender3IngressoSeHa2Vagas()
         {
             Sessao sessao = new Sessao();
             sessao.TotalDeIngressos = 2;
