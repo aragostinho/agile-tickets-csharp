@@ -22,23 +22,19 @@ namespace AgileTickets.Web.Controllers
 
         public ActionResult Index()
         {
-            string titulo = "Todos os espetaculos";
-
             ViewBag.Estabelecimentos = estabelecimentos.Todos();
             return View(agenda.Espetaculos());
         }
 
         [RequiresTransaction]
-        public ActionResult Novo(Espetaculo espetaculo) {
+        public ActionResult Novo(Espetaculo espetaculo)
+        {
             agenda.Cadastra(espetaculo);
 
             return RedirectToAction("Index");
         }
 
-        private ActionResult VoltaPraIndex()
-        {
-            return RedirectToAction("Index");
-        }
+       
 
     }
 }

@@ -31,14 +31,9 @@ namespace AgileTickets.Web.Controllers
 
             estabelecimentos.Salva(estabelecimento);
 
-            // redireciona
             return RedirectToAction("Index");
         }
 
-        private Estabelecimento PopulaEstabelecimento() 
-        {
-            Estabelecimento e = new Estabelecimento();
-            return e;
-        }
+
     }
 }

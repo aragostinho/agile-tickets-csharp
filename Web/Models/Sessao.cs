@@ -15,37 +15,24 @@ namespace AgileTickets.Web.Models
 
         public virtual bool PodeReservar(int NumeroDeIngressos)
         {
-            int sobraram = IngressosDisponiveis - NumeroDeIngressos;
-            bool naoTemEspaco = sobraram <= 0;
+            if (NumeroDeIngressos <= 0)
+                return false;
 
-            return !naoTemEspaco;
+            int sobraram = IngressosDisponiveis - NumeroDeIngressos;
+            return sobraram >= 0;
         }
 
         public virtual int IngressosDisponiveis
         {
             get
             {
-                // faz a conta de total de ingressos menos ingressos reservados
                 return TotalDeIngressos - IngressosReservados;
             }
         }
 
-        // Era usada antes no sistema para avisar o cliente de que
-        // os ingressos estavam acabando!
-        // Hoje nao serve pra nada, mas eh sempre bom ter
-        // um backup guardado! ;)
-        public virtual bool PertoDoLimiteDeSeguranca_NaoUtilizada
-        {
-            get
-            {
-                int limite = 3;
-                return IngressosDisponiveis > limite;
-            }
-        }
 
         public virtual void Reserva(int quantidade)
         {
-            // soma quantidade na variavel ingressos reservados
             this.IngressosReservados += quantidade;
         }
     }

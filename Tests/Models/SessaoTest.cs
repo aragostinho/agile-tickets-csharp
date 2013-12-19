@@ -20,7 +20,42 @@ namespace Tests.Models
         }
 
         [Test]
-        public void NaodeveVender3IngressoSeHa2Vagas()
+        public void NaoDeveReservar2IngressosQuandoHa1Vaga()
+        {
+            Sessao sessao = new Sessao();
+            sessao.TotalDeIngressos = 1;
+
+            Assert.IsFalse(sessao.PodeReservar(2));
+        }
+
+        [Test]
+        public void NaoDeveReservarZeroIngressosQuandoHa3Vagas()
+        {
+            Sessao sessao = new Sessao();
+            sessao.TotalDeIngressos = 3;
+
+            Assert.IsFalse(sessao.PodeReservar(0));
+        }
+
+        [Test]
+        public void NaoDeveReservar2IngressosQuandoNaoHaVagas()
+        {
+            Sessao sessao = new Sessao();
+            sessao.TotalDeIngressos = 0;
+
+            Assert.IsFalse(sessao.PodeReservar(2));
+        }
+
+        [Test]
+        public void Reservar2IngressosQuandoHa2Vagas() {
+            Sessao sessao = new Sessao();
+            sessao.TotalDeIngressos = 2;
+
+            Assert.IsTrue(sessao.PodeReservar(2));
+        }
+
+        [Test]
+        public void NaoDeveVender3IngressoSeHa2Vagas()
         {
             Sessao sessao = new Sessao();
             sessao.TotalDeIngressos = 2;
