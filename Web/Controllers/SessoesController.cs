@@ -35,14 +35,14 @@ namespace AgileTickets.Web.Controllers
             return View(agenda.Sessao(sessaoId));
         }
 
-       
+
         [RequiresTransaction]
         public ActionResult Reservar(int sessaoId, int quantidade)
         {
-            Sessao sessao = pegaSessao(sessaoId);         
+            Sessao sessao = pegaSessao(sessaoId);
             if (!sessao.PodeReservar(quantidade))
             {
-                TempData["MensagemDeErro"] = "Você não pode reservar mais do que " + sessao.IngressosDisponiveis + " ingressos!";
+                TempData["MensagemDeErro"] = string.Concat("Você não pode reservar mais do que ", sessao.IngressosDisponiveis, " ingressos!");
                 return RedirectToAction("Exibir", new { id = sessaoId });
             }
             sessao.Reserva(quantidade);
