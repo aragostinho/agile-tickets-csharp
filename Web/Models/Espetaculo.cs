@@ -19,7 +19,7 @@ namespace AgileTickets.Web.Models
         }
 
         public virtual IList<Sessao> CriaSessoes(DateTime inicio, DateTime fim, Periodicidade periodicidade)
-                   
+        {            
             return null;
         }
 
