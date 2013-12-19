@@ -29,6 +29,24 @@ namespace Tests.Models
         }
 
         [Test]
+        public void ReservarNenhumIngressoQuandoHa3Vagas()
+        {
+            Sessao sessao = new Sessao();
+            sessao.TotalDeIngressos = 3;
+
+            Assert.IsFalse(sessao.PodeReservar(0));
+        }
+
+        [Test]
+        public void Reservar2IngressosQuandoNaoHaVagas()
+        {
+            Sessao sessao = new Sessao();
+            sessao.TotalDeIngressos = 0;
+
+            Assert.IsFalse(sessao.PodeReservar(2));
+        }
+
+        [Test]
         public void Reservar2IngressosQuandoHa2Vagas() {
             Sessao sessao = new Sessao();
             sessao.TotalDeIngressos = 2;
