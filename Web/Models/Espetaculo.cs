@@ -24,9 +24,11 @@ namespace AgileTickets.Web.Models
             return null;
         }
 
-        public virtual bool Vagas(int qtd, int min)
+        public virtual bool PossuiVagas(int qtd, int min)
         {
             // ALUNO: Não apague esse metodo. Esse sim será usado no futuro! ;)
+
+
             int totDisp = 0;
 
             foreach (Sessao s in Sessoes)
@@ -37,7 +39,7 @@ namespace AgileTickets.Web.Models
             return (totDisp >= qtd);
         }
 
-        public virtual bool Vagas(int qtd)
+        public virtual bool PossuiVagas(int qtd)
         {
             // ALUNO: Não apague esse metodo. Esse sim será usado no futuro! ;)
             int totDisp = 0;
