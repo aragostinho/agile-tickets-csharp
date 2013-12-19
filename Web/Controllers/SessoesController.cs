@@ -12,9 +12,9 @@ namespace AgileTickets.Web.Controllers
 {
     public class SessoesController : Controller
     {
-        private Agenda agenda;
+        private IAgenda agenda;
         private ISession session;
-        public SessoesController(Agenda agenda, ISession session)
+        public SessoesController(IAgenda agenda, ISession session)
         {
             this.agenda = agenda;
             this.session = session;

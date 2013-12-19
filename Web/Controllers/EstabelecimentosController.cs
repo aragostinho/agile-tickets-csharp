@@ -11,9 +11,9 @@ namespace AgileTickets.Web.Controllers
 {
     public class EstabelecimentosController : Controller
     {
-        private DiretorioDeEstabelecimentos estabelecimentos;
+        private IDiretorioDeEstabelecimentos estabelecimentos;
 
-        public EstabelecimentosController(DiretorioDeEstabelecimentos estabelecimentos)
+        public EstabelecimentosController(IDiretorioDeEstabelecimentos estabelecimentos)
         {
             // guarda estabelecimento
             this.estabelecimentos = estabelecimentos;

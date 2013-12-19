@@ -11,10 +11,10 @@ namespace AgileTickets.Web.Controllers
 {
     public class EspetaculosController : Controller
     {
-        private Agenda agenda;
-        private DiretorioDeEstabelecimentos estabelecimentos;
+        private IAgenda agenda;
+        private IDiretorioDeEstabelecimentos estabelecimentos;
 
-        public EspetaculosController(Agenda agenda, DiretorioDeEstabelecimentos estabelecimentos)
+        public EspetaculosController(IAgenda agenda, IDiretorioDeEstabelecimentos estabelecimentos)
         {
             this.agenda = agenda;
             this.estabelecimentos = estabelecimentos;

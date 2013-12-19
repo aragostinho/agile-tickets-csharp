@@ -150,8 +150,8 @@
     <Compile Include="Models\Sessao.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorios\Agenda.cs" />
-    <Compile Include="Repositorios\DiretorioDeEstabelecimentos.cs" />
+    <Compile Include="Repositorios\IAgenda.cs" />
+    <Compile Include="Repositorios\IDiretorioDeEstabelecimentos.cs" />
     <Compile Include="Repositorios\IDao.cs" />
   </ItemGroup>
   <ItemGroup>
