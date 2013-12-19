@@ -23,13 +23,13 @@ namespace AgileTickets.Web.Models
             return null;
         }
 
-        public virtual bool PossuiVagas(int qtd, int qtdMinimaDeVagas)
+        public virtual bool PossuiVagas(int qtdDeVagasRequisitadas, int qtdMinimaDeVagas)
         {
             if (!PossuiQtdeMinimaDeVagas(Sessoes, qtdMinimaDeVagas))
                 return false;
 
             int totalDisponivel = ObterTotalDisponivel();
-            return (totalDisponivel >= qtd);
+            return (totalDisponivel >= qtdDeVagasRequisitadas);
         }
 
         private bool PossuiQtdeMinimaDeVagas(IList<Sessao> olSessao, int qtdMinimaDeVagas)
