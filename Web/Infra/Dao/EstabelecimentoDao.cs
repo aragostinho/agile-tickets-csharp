@@ -8,7 +8,7 @@ using NHibernate;
 
 namespace AgileTickets.Web.Infra.Dao
 {
-    public class EstabelecimentoDao : DiretorioDeEstabelecimentos
+    public class EstabelecimentoDao : IDiretorioDeEstabelecimentos
     {
         private ISession session;
 

@@ -8,7 +8,7 @@ using NHibernate;
 
 namespace AgileTickets.Web.Infra.Dao
 {
-    public class AgendaDao : Agenda
+    public class AgendaDao : IAgenda
     {
         private ISession session;
         private Relogio relogio;

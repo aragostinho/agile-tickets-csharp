@@ -12,9 +12,9 @@ namespace AgileTickets.Web.Controllers
 {
     public class SessoesController : Controller
     {
-        private Agenda agenda;
+        private IAgenda agenda;
         private ISession session;
-        public SessoesController(Agenda agenda, ISession session)
+        public SessoesController(IAgenda agenda, ISession session)
         {
             this.agenda = agenda;
             this.session = session;
@@ -35,14 +35,14 @@ namespace AgileTickets.Web.Controllers
             return View(agenda.Sessao(sessaoId));
         }
 
-       
+
         [RequiresTransaction]
         public ActionResult Reservar(int sessaoId, int quantidade)
         {
-            Sessao sessao = pegaSessao(sessaoId);         
+            Sessao sessao = pegaSessao(sessaoId);
             if (!sessao.PodeReservar(quantidade))
             {
-                TempData["MensagemDeErro"] = "Você não pode reservar mais do que " + sessao.IngressosDisponiveis + " ingressos!";
+                TempData["MensagemDeErro"] = string.Concat("Você não pode reservar mais do que ", sessao.IngressosDisponiveis, " ingressos!");
                 return RedirectToAction("Exibir", new { id = sessaoId });
             }
             sessao.Reserva(quantidade);
