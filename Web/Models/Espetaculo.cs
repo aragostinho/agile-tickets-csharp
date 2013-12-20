@@ -19,8 +19,15 @@ namespace AgileTickets.Web.Models
         }
 
         public virtual IList<Sessao> CriaSessoes(DateTime inicio, DateTime fim, Periodicidade periodicidade)
-        {            
-            return null;
+        {
+
+            Sessao sessao = new Sessao();
+            sessao.Inicio = inicio;
+
+            Sessoes.Add(sessao);
+
+            return Sessoes;
+
         }
 
         public virtual bool PossuiVagas(int qtd, int qtdMinimaDeVagas)

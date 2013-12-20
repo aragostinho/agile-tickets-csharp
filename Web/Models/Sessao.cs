@@ -12,7 +12,7 @@ namespace AgileTickets.Web.Models
         public virtual int TotalDeIngressos { get; set; }
         public virtual int IngressosReservados { get; set; }
         public virtual DateTime Inicio { get; set; }
-
+        
         public virtual bool PodeReservar(int NumeroDeIngressos)
         {
             if (NumeroDeIngressos <= 0)
