@@ -21,6 +21,9 @@ namespace AgileTickets.Web.Models
         public virtual IList<Sessao> CriaSessoes(DateTime inicio, DateTime fim, Periodicidade periodicidade)
         {
 
+            if (inicio > fim)
+                throw new Exception("Data de inicio nao pode ser maior que a da final");
+
             Sessao sessao = new Sessao();
             sessao.Inicio = inicio;
 
