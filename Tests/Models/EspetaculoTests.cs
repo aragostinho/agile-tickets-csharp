@@ -104,6 +104,19 @@ namespace Tests.Models
             Assert.AreEqual(1, sessoes.Count());
         }
 
+        [Test]
+        public void VerificarDataAoCriarSessaoComDataDeInicioIgualDataDeEncerramentoComPeriodicidadeDiaria()
+        {
+            Espetaculo espetaculo = new Espetaculo();
+            DateTime dataInicial = new DateTime(2013, 12, 19);
+            DateTime dataFinal = new DateTime(2013, 12, 19);
+            Periodicidade periodicidade = Periodicidade.DIARIA;
+
+            IList<Sessao> sessoes = espetaculo.CriaSessoes(dataInicial, dataFinal, periodicidade);
+
+            Assert.AreEqual(dataInicial, sessoes[0].Inicio);
+        }
+
 
 
     }
