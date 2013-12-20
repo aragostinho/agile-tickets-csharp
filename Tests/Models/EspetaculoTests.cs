@@ -120,7 +120,7 @@ namespace Tests.Models
 
         [Test]
         [ExpectedException]
-        public void CriarSessaoComDataDeInicioMaiorQueDataDeEncerramentoComPeriodicidadeDiaria()
+        public void ErroAoCriarSessaoComDataDeInicioMaiorQueDataDeEncerramentoComPeriodicidadeDiaria()
         {
             Espetaculo espetaculo = new Espetaculo();
             DateTime dataInicial = new DateTime(2013, 12, 20);
