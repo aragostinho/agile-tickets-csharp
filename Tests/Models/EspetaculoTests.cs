@@ -118,6 +118,19 @@ namespace Tests.Models
         }
 
 
+        [Test]
+        [ExpectedException]
+        public void CriarSessaoComDataDeInicioMaiorQueDataDeEncerramentoComPeriodicidadeDiaria()
+        {
+            Espetaculo espetaculo = new Espetaculo();
+            DateTime dataInicial = new DateTime(2013, 12, 20);
+            DateTime dataFinal = new DateTime(2013, 12, 19);
+            Periodicidade periodicidade = Periodicidade.DIARIA;
+
+            IList<Sessao> sessoes = espetaculo.CriaSessoes(dataInicial, dataFinal, periodicidade);
+        }
+
+
 
     }
 }
