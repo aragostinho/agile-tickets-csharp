@@ -90,5 +90,21 @@ namespace Tests.Models
 
             return sessao;
         }
+
+        [Test]
+        public void CriarSessaoComDataDeInicioIgualDataDeEncerramentoComPeriodicidadeDiaria()
+        {
+            Espetaculo espetaculo = new Espetaculo();
+            DateTime dataInicial = new DateTime(2013, 12, 19);
+            DateTime dataFinal = new DateTime(2013, 12, 19);
+            Periodicidade periodicidade = Periodicidade.DIARIA;
+
+            IList<Sessao> sessoes = espetaculo.CriaSessoes(dataInicial, dataFinal, periodicidade);
+
+            Assert.AreEqual(1, sessoes.Count());
+        }
+
+
+
     }
 }
