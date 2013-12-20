@@ -2,58 +2,57 @@
 <project name="AgileTickets" default="compile">
 
 	<property name="nunit.path" value="packages\NUnit.2.5.10.11092\tools" />
-  <property name="nant.contrib.path" value="C:\Program Files\nantcontrib\bin" />
+	<property name="nant.contrib.path" value="C:\Program Files\nantcontrib\bin" />
   
 	<property name="test.build.dir" value="Tests\bin\Release" />
 	
-  <property name="webapp.path" value="Web" />
+	<property name="webapp.path" value="Web" />
 	<property name="webapp.binary.path" value="${webapp.path}\bin" />
 
-  <property name="target.path" value="target" />
-  <property name="package.path" value="${target.path}/web" />
-  <property name="reports.path" value="${target.path}/reports" />
+	<property name="target.path" value="target" />
+	<property name="package.path" value="${target.path}/web" />
+	<property name="reports.path" value="${target.path}/reports" />
 
-  <target name="resolve" depends="clean">
-    <exec workingdir="./" basedir="./" program="NuGet">
-      <arg line="install -o packages/ Web/packages.config" />
-    </exec>
-    <exec workingdir="./" basedir="./" program="NuGet">
-      <arg line="install -o packages/ Tests/packages.config"/>
-    </exec>
-    <exec workingdir="./" basedir="./" program="NuGet">
-      <arg line="install -o packages/ AcceptanceTests/packages.config"/>
-    </exec>
-  </target>
+	<target name="resolve" depends="clean">
+		<exec workingdir="./" basedir="./" program="NuGet">
+			<arg line="install -o packages/ Web/packages.config" />
+		</exec>
+		<exec workingdir="./" basedir="./" program="NuGet">
+			<arg line="install -o packages/ Tests/packages.config"/>
+		</exec>
+		<exec workingdir="./" basedir="./" program="NuGet">
+			<arg line="install -o packages/ AcceptanceTests/packages.config"/>
+		</exec>
+	</target>
   
 	<target name="compile" depends="resolve">
-    <loadtasks assembly="${nant.contrib.path}\NAnt.Contrib.Tasks.dll" />
-    <msbuild project="AgileTickets.sln">
-      <property name="Configuration" value="Release" />
-      <property name="Platform" value="Any CPU" />
-      <arg value="/t:Rebuild" />
-      <arg line="/m:2" />
-    </msbuild>
-  </target>
+		<loadtasks assembly="${nant.contrib.path}\NAnt.Contrib.Tasks.dll" />
+		<msbuild project="AgileTickets.sln">
+			<property name="Configuration" value="Release" />
+			<property name="Platform" value="Any CPU" />
+			<arg value="/t:Rebuild" />
+			<arg line="/m:2" />
+		</msbuild>
+	</target>
 
-  <target name="clean">
-    <delete>
-    <fileset>
-      <include name="**\bin\**" />
-      <include name="**\obj\**" />
-    </fileset>
-    </delete>
+	<target name="clean">
+		<delete>
+			<fileset>
+				<include name="**\bin\**" />
+				<include name="**\obj\**" />
+			</fileset>
+		</delete>
 
-    <delete dir="${package.path}" />
-    <mkdir dir="${package.path}" />
-  </target>
+		<delete dir="${package.path}" />
+		<mkdir dir="${package.path}" />
+	</target>
 
 	<target name="tests" description="Roda os testes" depends="compile">
-    <mkdir dir="${reports.path}" />
+		<mkdir dir="${reports.path}" />
 		<exec workingdir="${test.build.dir}" program="${nunit.path}/nunit-console.exe">
 			<arg value="Tests.dll" />
 			<arg value="/xml=../../../${reports.path}/Tests-results.xml" />
 		</exec> 
-
 	</target>
 
 </project>
